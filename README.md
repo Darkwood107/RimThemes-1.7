@@ -7,6 +7,8 @@
 > This is a fork of [aRandomKiwi/RimThemes](https://github.com/aRandomKiwi/RimThemes), all credit for the mod goes to **aRandomKiwi**.
 > It adds support for RimWorld 1.7 (Waylith engine) while keeping the original builds for 1.0–1.6 untouched.
 
+> **Steam Workshop:** [RimThemes (1.7 Unofficial)](https://steamcommunity.com/sharedfiles/filedetails/?id=3841792534)
+
 ## RimWorld 1.7 port
 
 RimWorld 1.7 replaced Unity with Ludeon's own Waylith engine and moved mods to .NET 10 and Harmony 3. This fork contains a rebuilt assembly in `1.7/Assemblies` and its source code in `Source/1.7`.
