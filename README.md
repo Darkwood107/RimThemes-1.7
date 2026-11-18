@@ -21,6 +21,8 @@
 
 # RimThemes
 
+> The port was made with the help of [Claude](https://claude.ai) (Anthropic), an AI assistant: code migration, analysis of the 1.7 assemblies and bug fixing. Testing in-game and publishing were done by Darkwood107.
+
 > [!NOTE]
 > **Unofficial RimWorld 1.7 port** by [Darkwood107](https://github.com/Darkwood107).
 > This is a fork of [aRandomKiwi/RimThemes](https://github.com/aRandomKiwi/RimThemes), all credit for the mod goes to **aRandomKiwi**.
