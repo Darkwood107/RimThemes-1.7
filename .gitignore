@@ -13,3 +13,7 @@
 **/obj
 obj/
 .vs/
+
+# .NET SDK build output (1.7)
+Source/1.7/obj/
+Source/1.7/bin/

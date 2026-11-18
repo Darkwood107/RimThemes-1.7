@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    RimThemes — RimWorld 1.7 (Waylith engine, .NET 10)
+    Потрібно: Visual Studio 2026 / Rider 2026 або .NET 10 SDK (dotnet build).
+
+    Шляхи до гри задаються властивостями нижче. Можна перевизначити без правки файлу:
+      dotnet build -c Release -p:RimWorldDir="D:\Steam\steamapps\common\RimWorld"
+  -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>aRandomKiwi.RimThemes</RootNamespace>
+    <AssemblyName>RimThemes</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <!-- Вихід прямо в 1.7/Assemblies, без підпапки net10.0 і без .deps.json -->
+    <OutputPath>..\..\1.7\Assemblies\</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+
+    <!-- Метадані збірки (раніше були в Properties/AssemblyInfo.cs) -->
+    <AssemblyTitle>RimThemes</AssemblyTitle>
+    <Description>RimWorld Themes engine</Description>
+    <Company>aRandomKiwi</Company>
+    <Product>RimThemes</Product>
+    <Copyright>Copyright © 2019 aRandomKiwi</Copyright>
+    <AssemblyVersion>2026.1.7.0</AssemblyVersion>
+    <FileVersion>2026.1.7.0</FileVersion>
+
+    <!-- Шляхи. Змініть під свою установку. -->
+    <RimWorldDir Condition="'$(RimWorldDir)' == ''">..\..\..\..</RimWorldDir>
+    <!-- Папка з Assembly-CSharp.dll / UnityStubs.dll / Waylith.dll у збірці 1.7 -->
+    <RimWorldManaged Condition="'$(RimWorldManaged)' == '' And Exists('$(RimWorldDir)\RimWorldWin64_Data\Managed\Waylith.dll')">$(RimWorldDir)\RimWorldWin64_Data\Managed</RimWorldManaged>
+    <RimWorldManaged Condition="'$(RimWorldManaged)' == ''">$(RimWorldDir)</RimWorldManaged>
+    <!-- Harmony 3 з Workshop (brrainz.harmony, id 2009463077) -->
+    <HarmonyDll Condition="'$(HarmonyDll)' == ''">$(RimWorldDir)\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HarmonyDll>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Нові референси 1.7: замість усіх UnityEngine*.dll / Unity.TextMeshPro / UnityEngine.UI -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(RimWorldManaged)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityStubs">
+      <HintPath>$(RimWorldManaged)\UnityStubs.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Waylith">
+      <HintPath>$(RimWorldManaged)\Waylith.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Harmony 3.0 (у грі його дає мод-залежність, тому не копіюємо) -->
+    <Reference Include="0Harmony">
+      <HintPath>$(HarmonyDll)</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- LibAPNG — чиста BCL-бібліотека, лежить поруч і копіюється в 1.7/Assemblies -->
+    <Reference Include="LibAPNG">
+      <HintPath>..\..\1.6\Assemblies\LibAPNG.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+</Project>
