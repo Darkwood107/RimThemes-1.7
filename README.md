@@ -1,24 +1,3 @@
-<p align="center">
-    <img src="https://i.imgur.com/2TKfjaV.png" alt="RimThemes" />
-</p>
-
-<p align="center">
-	<a href="https://github.com/aRandomKiwi/RimThemes/releases">
-		<img src="https://img.shields.io/badge/release-NX rev10.2-4BC51D.svg?style=flat" alt="NX rev10.2" />
-    </a>
-	<img src="https://img.shields.io/github/downloads-pre/aRandomKiwi/RimThemes/total.svg?style=popout-square&color=green" alt="Github Total Downloads" />
-	<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1668983184">
-		<img src="https://img.shields.io/badge/RimWorld-1.6-purple.svg?longCache=true&style=plastic)" alt="Compatible Rimworld 1.6" />
-    </a>
-	<a href="https://steamcommunity.com/sharedfiles/filedetails/?id=1668983184">
-		<img src="https://img.shields.io/badge/documentation-%F0%9F%94%8D-blue?style=flat" />
-</p>
-<p align="center">
-    <a href="https://ko-fi.com/arandomkiwi">
-        <img src="https://i.imgur.com/j6rtAY1.png" alt="RimThemes" />
-    </a>
-</p>
-
 # RimThemes
 
 > The port was made with the help of [Claude](https://claude.ai) (Anthropic), an AI assistant: code migration, analysis of the 1.7 assemblies and bug fixing. Testing in-game and publishing were done by Darkwood107.
