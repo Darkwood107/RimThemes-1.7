@@ -20,6 +20,33 @@
 </p>
 
 # RimThemes
+
+> [!NOTE]
+> **Unofficial RimWorld 1.7 port** by [Darkwood107](https://github.com/Darkwood107).
+> This is a fork of [aRandomKiwi/RimThemes](https://github.com/aRandomKiwi/RimThemes), all credit for the mod goes to **aRandomKiwi**.
+> It adds support for RimWorld 1.7 (Waylith engine) while keeping the original builds for 1.0–1.6 untouched.
+
+## RimWorld 1.7 port
+
+RimWorld 1.7 replaced Unity with Ludeon's own Waylith engine and moved mods to .NET 10 and Harmony 3. This fork contains a rebuilt assembly in `1.7/Assemblies` and its source code in `Source/1.7`.
+
+**Changes compared to the 1.6 version:**
+- Project migrated to SDK-style `.csproj` targeting `net10.0`, built against `Assembly-CSharp`, `UnityStubs` and `Waylith` (Harmony 3.0).
+- Theme sounds and music are loaded with `AudioClip.LoadFromFile` (the old `RuntimeAudioClipLoader` no longer exists).
+- Custom cursor is now applied on the main thread (Waylith forbids windowing calls from the loading thread).
+- Fixed buttons turning invisible after unthemed widgets (postfixes restored an unset `GUI.color`).
+- Fixed the `Widgets.ButtonTextWorker` patch signature (`TextAnchor?`).
+- Harmony patches are applied one by one, so a single failing patch no longer disables the whole mod.
+- Null checks for loader background textures.
+
+**Requirements:** RimWorld 1.7 and [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=2009463077) 3.x.
+
+**Building:** .NET 10 SDK (VS 2026 / Rider 2026 or `dotnet build`). Run `Source/1.7/build.bat "<path to RimWorld>"`, or set `RimWorldDir` / `RimWorldManaged` / `HarmonyDll` in `RimThemes.csproj`.
+
+**Status:** tested on the 1.7 unstable branch (1.7.5013). Bugs specific to the 1.7 port should be reported in this fork, not to the original author.
+
+Licensed under GPL-3.0, same as the original.
+
 Themes engine for RimWorld.
 
 Modify all game UI, make RimWorld look as you are or as you want.
